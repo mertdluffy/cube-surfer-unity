@@ -4,11 +4,13 @@ using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
 
+
 public class Collector : MonoBehaviour
 {
 
     public GameObject mainCube;
     int height;
+
 
     void Start()
     {
@@ -30,13 +32,21 @@ public class Collector : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Collect" && !other.gameObject.GetComponent<CollectableCube>().getIsCollected()) {
+        if (other.gameObject.tag == "Collect" && !other.gameObject.GetComponent<CollectableCube>().getIsCollected())
+        {
             height += 1;
             other.gameObject.GetComponent<CollectableCube>().markAsCollected();
             other.gameObject.GetComponent<CollectableCube>().setIndex(height);
             other.gameObject.transform.parent = mainCube.transform;
-        } else if (other.gameObject.tag == "FinishLine") {
+        }
+        else if (other.gameObject.tag == "FinishLine")
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if (other.gameObject.tag == "Coin")
+        {
+            ScoreScript.scoreValue += 1;
+            Destroy(other.gameObject);
         }
     }
 }

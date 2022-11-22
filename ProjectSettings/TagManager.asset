@@ -9,6 +9,7 @@ TagManager:
   - FinishLine
   - Collider
   - Platform
+  - Coin
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,7 @@ public class MenuScript : MonoBehaviour
 
     public void startButton() {
         SceneManager.LoadScene(1);
+        ScoreScript.scoreValue = 0;
     }
     
     
