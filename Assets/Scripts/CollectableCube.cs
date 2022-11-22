@@ -11,6 +11,7 @@ public class CollectableCube : MonoBehaviour
     void Start()
     {
         isCollected = false;
+
     }
 
     // Update is called once per frame
